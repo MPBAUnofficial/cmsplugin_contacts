@@ -1,0 +1,46 @@
+{% load thumbnail sekizai_tags  static %}
+
+{% if contact %}
+    <div id=contact-div>
+        <h2>{{ header|capfirst }}</h2>
+
+        {% for person in contact.person_set.all %}
+            <div class="contact_info">
+                <table class="contact_table">
+                    <tbody>
+                        <tr>
+                            <th class="contact_name" valign="top">
+                                <h5 class="string_uppercase">{{ person.name|capfirst }} <br>{{ person.surname|capfirst }}</h5>
+                                {% if person.image %}                  
+                                    <img class="contact_avatar" src="{% thumbnail person.image 60x60 %}" alt="Avatar" />
+                                {% else %}
+                                    <img class="contact_avatar" src="{{ STATIC_URL }}no_data/no_photo.png" alt = "Avatar" />
+                                {% endif %}
+                            </th>
+                            <th class="contact_description" valign="top">
+                                {{ person.description|capfirst }}              
+                            </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>      
+                                <td>
+                                    <p class="contact_bold">{{ person.email }}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                    <p class="contact_bold">{{person.telephone }}</p></td>
+                                </tr>
+                    </tbody>
+                </table>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% addtoblock "css" %}
+        <link href="{{ STATIC_URL }}css/contact.css" media="screen" rel="stylesheet" type="text/css" />
+    {% endaddtoblock %}
+{% endif %}
