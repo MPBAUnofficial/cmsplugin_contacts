@@ -66,6 +66,8 @@ class Person(models.Model):
     def __unicode__(self):
         return self.name + " " + self.surname
 
+    def get_reverse_mail(self):
+        return self.email[::-1]
 
     class Meta:
         verbose_name=_("person")

@@ -17,7 +17,7 @@ class CMSContactPlugin(CMSPluginBase):
     name = _("Contact list")
     render_template = "cmsplugin_contacts/contact.html"
 
-    def render(self, context, instance, placeholder):              
+    def render(self, context, instance, placeholder):                      
         context.update({
             'header':_("Contacts"),
             'contact':instance,      

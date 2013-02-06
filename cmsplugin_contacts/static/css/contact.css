@@ -61,6 +61,12 @@ table.contact_table td {
     font-size: 12px;
     margin-bottom: 2px;
     margin-top: 6px;
+    text-align: left;
+}
+
+.obfuscation {
+    unicode-bidi: bidi-override; 
+    direction: rtl;
 }
 
 img.contact_avatar {

@@ -1,5 +1,6 @@
 {% load thumbnail sekizai_tags  static %}
 
+
 {% if contact %}
     <div id=contact-div>
         <h2>{{ header|capfirst }}</h2>
@@ -25,7 +26,7 @@
                                 <td>
                                 </td>      
                                 <td>
-                                    <p class="contact_bold">{{ person.email }}</p>
+                                    <p class="contact_bold obfuscation">{{ person.get_reverse_mail }}</p>
                                 </td>
                             </tr>
                             <tr>
